@@ -1,0 +1,17 @@
+{:paths ["src" "resources"]
+
+ ;; Clojure is in :deps (not :compile-only) because it must be bundled in the uberjar.
+ ;; Dependent thin plugins declare `depend: [LithClojureRuntime]` in plugin.yml and
+ ;; rely on Paper's classloader to provide these classes at runtime.
+ :deps {org.clojure/clojure {:mvn/version "1.12.0"}}
+
+ :mvn/repos {"papermc" {:url "https://repo.papermc.io/repository/maven-public/"}}
+
+ :aliases
+ {;; Paper API is compile-time only — the server provides it at runtime
+  :compile
+  {:extra-deps {io.papermc.paper/paper-api {:mvn/version "1.21.4-R0.1-SNAPSHOT"}}}
+
+  :build
+  {:deps {io.github.clojure/tools.build {:git/tag "v0.10.5" :git/sha "2a21b7a"}}
+   :ns-default build}}}
