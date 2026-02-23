@@ -1,0 +1,5 @@
+name: LithClojureRuntime
+version: 0.1.0-SNAPSHOT
+main: lithria.clojure_runtime.Plugin
+api-version: '1.21'
+description: Provides the Clojure runtime for Lithria plugins
